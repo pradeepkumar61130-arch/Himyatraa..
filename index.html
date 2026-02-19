@@ -3,88 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO -->
-<meta name="description" content="HIMyatraa Tours & Travels - Luxury & Affordable Uttarakhand Tour Packages including Chardham Yatra, Kedarnath, Badrinath, Rishikesh & more.">
-<meta name="keywords" content="Uttarakhand tour, Chardham Yatra, Kedarnath tour, Rishikesh travel, HIMyatraa">
-<meta name="author" content="Pradeep">
-
 <title>HIMyatraa Tours & Travels</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+<meta name="description" content="HIMyatraa Tours & Travels - 40+ Uttarakhand & All India Tour Packages. Direct WhatsApp Booking Available.">
+<meta name="keywords" content="Uttarakhand tour, Kedarnath, Badrinath, Chardham, India tour packages">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 body{
-background:linear-gradient(135deg,#1e3c72,#2a5298,#ff7b00);
-background-attachment:fixed;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 scroll-behavior:smooth;
 }
 
-/* HERO SLIDER */
-.hero{
-height:100vh;
-position:relative;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-animation:fade 16s infinite;
-}
-
-.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80');animation-delay:0s;}
-.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1595814436568-5c2f4b6e0d9a?auto=format&fit=crop&w=1600&q=80');animation-delay:4s;}
-.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1587392380660-8e1a01fb9b31?auto=format&fit=crop&w=1600&q=80');animation-delay:8s;}
-.slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1567669620027-3df6fcfa2725?auto=format&fit=crop&w=1600&q=80');animation-delay:12s;}
-
-@keyframes fade{
-0%{opacity:0;}
-10%{opacity:1;}
-25%{opacity:1;}
-35%{opacity:0;}
-100%{opacity:0;}
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-animation:slideUp 1.5s ease;
-}
-
-@keyframes slideUp{
-from{transform:translateY(50px);opacity:0;}
-to{transform:translateY(0);opacity:1;}
-}
-
-.hero h1{font-size:3rem;margin-bottom:20px;}
-.hero p{font-size:1.3rem;margin-bottom:20px;}
-
-.btn{
-padding:15px 30px;
-background:#ff7b00;
-border-radius:30px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
-.btn:hover{background:#ff5500;}
-
+/* NAV */
 nav{
-background:#0a3d62;
+background:#00000090;
+backdrop-filter:blur(10px);
 padding:15px;
+position:fixed;
+width:100%;
+z-index:999;
 text-align:center;
 }
-
 nav a{
 color:white;
 margin:0 15px;
@@ -92,13 +35,29 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* SECTIONS */
-section{
-padding:60px 20px;
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
+background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80') center/cover;
+}
+.hero h1{font-size:3rem;}
+.hero p{margin:20px 0;}
+.btn{
+padding:15px 30px;
+background:#ff7b00;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
 
-h2{margin-bottom:30px;}
+/* SECTION */
+section{padding:100px 20px;text-align:center;}
+h2{margin-bottom:40px;font-size:2rem;}
 
 .grid{
 display:grid;
@@ -107,25 +66,18 @@ gap:20px;
 }
 
 .card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
 overflow:hidden;
 transition:0.4s;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
-
 .card:hover{transform:scale(1.05);}
-
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
+.card img{width:100%;height:200px;object-fit:cover;}
 .card-content{padding:15px;}
 
-/* BOOKING FORM */
+/* BOOKING */
 form{
 max-width:500px;
 margin:auto;
@@ -133,13 +85,9 @@ display:flex;
 flex-direction:column;
 gap:15px;
 }
-
-input,select,textarea{
-padding:12px;
-border:none;
-border-radius:8px;
+input,select{
+padding:12px;border:none;border-radius:8px;
 }
-
 button{
 padding:12px;
 background:#ff7b00;
@@ -148,30 +96,25 @@ border-radius:8px;
 color:white;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
 }
 
-button:hover{background:#ff5500;}
-
-/* FLOATING BUTTONS */
+/* FLOATING */
 .floating a{
 position:fixed;
 right:20px;
-padding:15px;
+padding:18px;
 border-radius:50%;
 font-size:22px;
-text-decoration:none;
 color:white;
-box-shadow:0 5px 10px rgba(0,0,0,0.3);
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
-
-.call{bottom:90px;background:#e84118;}
 .whatsapp{bottom:20px;background:#25D366;}
+.call{bottom:90px;background:#e84118;}
 
 footer{
-background:#0a3d62;
+background:#00000090;
 padding:20px;
-margin-top:40px;
 text-align:center;
 }
 </style>
@@ -179,85 +122,111 @@ text-align:center;
 
 <body>
 
-<div class="hero">
-<div class="slide"></div>
-<div class="slide"></div>
-<div class="slide"></div>
-<div class="slide"></div>
-
-<div class="hero-content">
-<h1>HIMyatraa Tours & Travels</h1>
-<p>Luxury & Affordable Uttarakhand Packages</p>
-<a href="#booking" class="btn">Book Your Trip</a>
-</div>
-</div>
-
 <nav>
-<a href="#destinations">Destinations</a>
+<a href="#uttarakhand">Uttarakhand</a>
+<a href="#india">All India</a>
 <a href="#booking">Booking</a>
-<a href="#contact">Contact</a>
 </nav>
 
-<section id="destinations">
-<h2>Popular Destinations</h2>
+<div class="hero">
+<div>
+<h1>HIMyatraa Tours & Travels</h1>
+<p>40+ Uttarakhand & All India Premium Tour Packages</p>
+<a href="#booking" class="btn">Book Now</a>
+</div>
+</div>
+
+<!-- UTTARAKHAND 40+ -->
+<section id="uttarakhand">
+<h2>Uttarakhand Destinations (40+)</h2>
 <div class="grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1595814436568-5c2f4b6e0d9a?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Kedarnath</h3>
-<p>Luxury Chardham packages available.</p>
-</div>
-</div>
+<!-- AUTO GENERATED 40 DESTINATIONS -->
+<script>
+const destinations = [
+"Kedarnath","Badrinath","Gangotri","Yamunotri","Haridwar","Rishikesh","Nainital","Mussoorie",
+"Auli","Chopta","Dehradun","Almora","Bageshwar","Binsar","Pithoragarh","Munsiyari",
+"Ranikhet","Lansdowne","Tehri","Dhanaulti","Harsil","Kausani","Pangot","Valley of Flowers",
+"Jim Corbett","Guptkashi","Tungnath","Hemkund Sahib","Joshimath","Devprayag",
+"Rudraprayag","Karnaprayag","Bhimtal","Sattal","Naukuchiatal","Chakrata",
+"Kanatal","Pauri","Gwaldam","Kotdwar"
+];
 
+document.write(destinations.map(d=>`
 <div class="card">
-<img src="https://images.unsplash.com/photo-1587392380660-8e1a01fb9b31?auto=format&fit=crop&w=600&q=80">
+<img src="https://source.unsplash.com/400x300/?${d},mountain">
 <div class="card-content">
-<h3>Rishikesh</h3>
-<p>Adventure & rafting tour packages.</p>
+<h3>${d}</h3>
+<p>Premium & Budget packages available.</p>
 </div>
 </div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1567669620027-3df6fcfa2725?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Nainital</h3>
-<p>Romantic & family holiday tours.</p>
-</div>
-</div>
+`).join(""));
+</script>
 
 </div>
 </section>
 
+<!-- ALL INDIA -->
+<section id="india">
+<h2>All India Tour Packages</h2>
+<div class="grid">
+
+<script>
+const india = [
+"Goa","Manali","Shimla","Jaipur","Kashmir","Ladakh","Kerala","Darjeeling",
+"Andaman","Udaipur","Ooty","Kanyakumari"
+];
+
+document.write(india.map(d=>`
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?${d},india">
+<div class="card-content">
+<h3>${d}</h3>
+<p>Luxury & Family Tour Packages.</p>
+</div>
+</div>
+`).join(""));
+</script>
+
+</div>
+</section>
+
+<!-- BOOKING -->
 <section id="booking">
-<h2>Book Your Tour</h2>
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<select required>
+<h2>Book on WhatsApp</h2>
+<form onsubmit="sendWhatsApp(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Mobile Number" required>
+<select id="destination" required>
 <option value="">Select Destination</option>
 <option>Kedarnath</option>
-<option>Rishikesh</option>
 <option>Nainital</option>
+<option>Goa</option>
+<option>Manali</option>
 </select>
-<textarea placeholder="Your Message"></textarea>
-<button type="submit">Submit Booking</button>
+<button type="submit">Send on WhatsApp</button>
 </form>
 </section>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<p>📞 +91 8679490106</p>
-</section>
-
 <div class="floating">
-<a href="tel:+918679490106" class="call">📞</a>
-<a href="https://wa.me/918679490106" target="_blank" class="whatsapp">💬</a>
+<a href="tel:+918679490106" class="call"><i class="fas fa-phone"></i></a>
+<a href="https://wa.me/918679490106" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <footer>
 © 2026 HIMyatraa Tours & Travels | Designed by Pradeep
 </footer>
+
+<script>
+function sendWhatsApp(e){
+e.preventDefault();
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let dest=document.getElementById("destination").value;
+let msg=`Hello, I am ${name}. My number is ${phone}. I want package details for ${dest}.`;
+window.open(`https://wa.me/918679490106?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
 
 </body>
 </html>
