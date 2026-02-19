@@ -10,21 +10,24 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f5f7fa;}
 
-header{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
-padding:60px 20px;
-text-align:center;
+body{
+background:linear-gradient(to right,#1e3c72,#2a5298);
+color:#333;
 }
 
-header h1{font-size:40px;}
+header{
+text-align:center;
+padding:60px 20px;
+color:white;
+}
+
+header h1{font-size:42px;}
 header p{margin-top:10px;font-size:18px;}
 
 .search-box{
 text-align:center;
-margin:30px 0;
+margin:20px 0;
 }
 
 .search-box input{
@@ -32,7 +35,7 @@ padding:12px;
 width:80%;
 max-width:400px;
 border-radius:30px;
-border:1px solid #ccc;
+border:none;
 outline:none;
 }
 
@@ -47,11 +50,11 @@ padding:20px;
 background:white;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 transition:0.3s;
 }
 
-.card:hover{transform:translateY(-5px);}
+.card:hover{transform:scale(1.03);}
 
 .card img{
 width:100%;
@@ -59,9 +62,14 @@ height:200px;
 object-fit:cover;
 }
 
-.card-content{padding:15px;}
+.card-content{
+padding:15px;
+}
 
-.card-content h3{margin-bottom:5px;}
+.card-content h3{
+margin-bottom:5px;
+color:#1e3c72;
+}
 
 .card-content p{
 font-size:14px;
@@ -112,27 +120,45 @@ margin-top:40px;
 
 <div class="destinations" id="destinationList"></div>
 
+<div class="buttons">
+<a href="tel:8679490106" class="btn call">
+<i class="fa-solid fa-phone"></i> Call Now
+</a>
+
+<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp Uttarakhand
+</a>
+
+<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp All India
+</a>
+</div>
+
+<footer>
+© 2026 HIMyatraa Tours & Travels | All Rights Reserved
+</footer>
+
 <script>
 const destinations = [
-{name:"Rishikesh",img:"https://source.unsplash.com/600x400/?rishikesh",desc:"Yoga Capital of the World. Famous for rafting and spiritual vibes."},
-{name:"Haridwar",img:"https://source.unsplash.com/600x400/?haridwar",desc:"Sacred city of Ganga Aarti. One of India's holiest places."},
-{name:"Kedarnath",img:"https://source.unsplash.com/600x400/?kedarnath-temple",desc:"Sacred Jyotirlinga temple surrounded by Himalayas."},
-{name:"Badrinath",img:"https://source.unsplash.com/600x400/?badrinath-temple",desc:"Important Char Dham site dedicated to Lord Vishnu."},
-{name:"Mussoorie",img:"https://source.unsplash.com/600x400/?mussoorie-hill-station",desc:"Queen of Hills with beautiful scenic views."},
-{name:"Nainital",img:"https://source.unsplash.com/600x400/?nainital-lake",desc:"Lake city famous for Naini Lake."},
-{name:"Auli",img:"https://source.unsplash.com/600x400/?auli-snow",desc:"Popular skiing destination with snow mountains."},
-{name:"Jim Corbett",img:"https://source.unsplash.com/600x400/?jim-corbett-national-park",desc:"India's oldest national park known for tigers."},
-{name:"Valley of Flowers",img:"https://source.unsplash.com/600x400/?valley-of-flowers-india",desc:"UNESCO site filled with colorful flowers."},
-{name:"Chopta",img:"https://source.unsplash.com/600x400/?chopta-uttarakhand",desc:"Mini Switzerland of India and trekking hub."},
-{name:"Tungnath",img:"https://source.unsplash.com/600x400/?tungnath-temple",desc:"Highest Shiva temple with stunning views."},
-{name:"Almora",img:"https://source.unsplash.com/600x400/?almora-hills",desc:"Peaceful hill town with cultural heritage."},
-{name:"Ranikhet",img:"https://source.unsplash.com/600x400/?ranikhet-hill",desc:"Beautiful cantonment town in hills."},
-{name:"Kausani",img:"https://source.unsplash.com/600x400/?kausani-himalaya",desc:"Panoramic Himalayan view point."},
-{name:"Munsiyari",img:"https://source.unsplash.com/600x400/?munsiyari-himalaya",desc:"Gateway to glaciers and adventure."},
-{name:"Tehri",img:"https://source.unsplash.com/600x400/?tehri-dam",desc:"Famous for Tehri Dam and water sports."}
+{name:"Rishikesh",img:"https://images.unsplash.com/photo-1593693397690-362cb9666fc2",desc:"Yoga Capital of the World. Famous for rafting and spiritual vibes."},
+{name:"Haridwar",img:"https://images.unsplash.com/photo-1561361513-2d000a50f0dc",desc:"Sacred city of Ganga Aarti and pilgrimage."},
+{name:"Kedarnath",img:"https://images.unsplash.com/photo-1626621341517-bbf3d9990b5f",desc:"Sacred Jyotirlinga temple in Himalayas."},
+{name:"Badrinath",img:"https://images.unsplash.com/photo-1609766856921-ef4a2c5c1d45",desc:"Char Dham site dedicated to Lord Vishnu."},
+{name:"Mussoorie",img:"https://images.unsplash.com/photo-1586183189334-6c1b59ddcc7a",desc:"Queen of Hills with beautiful views."},
+{name:"Nainital",img:"https://images.unsplash.com/photo-1589308078056-f9c75c3a5f2b",desc:"Famous lake city of Uttarakhand."},
+{name:"Auli",img:"https://images.unsplash.com/photo-1549880338-65ddcdfd017b",desc:"Popular skiing destination with snow peaks."},
+{name:"Jim Corbett",img:"https://images.unsplash.com/photo-1508672019048-805c876b67e2",desc:"India's oldest national park, famous for tigers."},
+{name:"Valley of Flowers",img:"https://images.unsplash.com/photo-1501785888041-af3ef285b470",desc:"UNESCO site filled with colorful flowers."},
+{name:"Chopta",img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",desc:"Mini Switzerland of India."},
+{name:"Tungnath",img:"https://images.unsplash.com/photo-1519681393784-d120267933ba",desc:"Highest Shiva temple with stunning views."},
+{name:"Almora",img:"https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1",desc:"Peaceful hill town with heritage."},
+{name:"Ranikhet",img:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e",desc:"Beautiful cantonment hill station."},
+{name:"Kausani",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",desc:"Panoramic Himalayan view point."},
+{name:"Munsiyari",img:"https://images.unsplash.com/photo-1472214103451-9374bd1c798e",desc:"Gateway to glaciers and adventure."},
+{name:"Tehri",img:"https://images.unsplash.com/photo-1506744038136-46273834b3fb",desc:"Famous for Tehri Dam and water sports."}
 ];
 
-const container = document.getElementById("destinationList");
+const container=document.getElementById("destinationList");
 
 destinations.forEach(place=>{
 container.innerHTML+=`
@@ -155,24 +181,6 @@ cards[i].style.display=title.includes(input)?"block":"none";
 }
 }
 </script>
-
-<div class="buttons">
-<a href="tel:8679490106" class="btn call">
-<i class="fa-solid fa-phone"></i> Call Now
-</a>
-
-<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp Uttarakhand
-</a>
-
-<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp All India
-</a>
-</div>
-
-<footer>
-© 2026 HIMyatraa Tours & Travels | All Rights Reserved
-</footer>
 
 </body>
 </html>
