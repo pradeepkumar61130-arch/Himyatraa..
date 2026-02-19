@@ -14,19 +14,15 @@ body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff}
 nav{background:#000000cc;padding:15px;position:fixed;width:100%;z-index:999;text-align:center}
 nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold}
 
-/* HERO WITH MOUNTAIN BACKGROUND */
+/* HERO MOUNTAIN BG */
 .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
 .hero::before{
 content:"";
 position:absolute;width:100%;height:100%;
 background-image:url('https://images.unsplash.com/photo-1509644851169-2acc08aa25b5');
-background-size:cover;
-background-position:center;
-opacity:0.6;
-z-index:-1}
+background-size:cover;background-position:center;
+opacity:0.6;z-index:-1}
 
-/* BUTTON */
-.hero h1{font-size:3rem}
 .btn{padding:10px 25px;background:#ff7b00;border-radius:25px;color:#fff;text-decoration:none}
 
 /* SECTIONS */
@@ -36,26 +32,16 @@ section{padding:100px 20px;text-align:center}
 .card:hover{transform:translateY(-6px)}
 .card img{width:100%;height:200px;object-fit:cover}
 .card-content{padding:15px}
-.view-btn{display:inline-block;margin-top:8px;padding:6px 15px;background:#25D366;border-radius:20px;color:#fff;text-decoration:none;font-size:13px}
-
-/* PRICING */
-.pricing{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-.price-card{background:#ffffff15;padding:20px;border-radius:15px;width:250px}
 
 /* BOOKING */
 form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:10px}
 input,select{padding:10px;border-radius:8px;border:none}
-button{padding:10px;background:#ff7b00;border:none;border-radius:8px;color:#fff;font-weight:bold;cursor:pointer}
+button{padding:10px;background:#ff7b00;border:none;border-radius:8px;color:#fff;font-weight:bold}
 
-/* FLOATING */
-.floating a{position:fixed;right:20px;padding:15px;border-radius:50%;font-size:20px;color:#fff;text-decoration:none}
+/* FLOAT */
+.floating a{position:fixed;right:20px;padding:15px;border-radius:50%;font-size:20px;color:#fff}
 .whatsapp{bottom:20px;background:#25D366}
 .call{bottom:80px;background:#e84118}
-
-/* MODAL */
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000cc;justify-content:center;align-items:center}
-.modal-content{background:#1e2a38;padding:20px;border-radius:10px;width:90%;max-width:600px}
-.gallery img{width:100%;height:250px;object-fit:cover;margin-top:10px}
 
 footer{text-align:center;padding:20px;background:#000000cc}
 </style>
@@ -66,7 +52,6 @@ footer{text-align:center;padding:20px;background:#000000cc}
 <nav>
 <a href="#uttarakhand">Uttarakhand</a>
 <a href="#india">All India</a>
-<a href="#pricing">Pricing</a>
 <a href="#booking">Booking</a>
 </nav>
 
@@ -107,8 +92,10 @@ footer{text-align:center;padding:20px;background:#000000cc}
 
 <script>
 
-/* ===== REAL DESTINATION IMAGES ===== */
+/* ===== IMAGES ===== */
 const placesImages={
+
+/* Uttarakhand */
 "Kedarnath":"https://images.unsplash.com/photo-1605649487212-47bdab064df6",
 "Badrinath":"https://images.unsplash.com/photo-1626621341517-bbf3d9990d8f",
 "Rishikesh":"https://images.unsplash.com/photo-1595815771614-ade5019d5f3f",
@@ -117,51 +104,58 @@ const placesImages={
 "Mussoorie":"https://images.unsplash.com/photo-1587474260584-136574528ed5",
 "Auli":"https://images.unsplash.com/photo-1605640840605-14ac1855827b",
 "Chopta":"https://images.unsplash.com/photo-1630155346909-5f00e1f4c3df",
-"Goa":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+"Tungnath":"https://images.unsplash.com/photo-1628157588553-5eeea00af15c",
+"Valley of Flowers":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+"Jim Corbett":"https://images.unsplash.com/photo-1501706362039-c6e80948bbf8",
+"Hemkund Sahib":"https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+
+/* India */
 "Manali":"https://images.unsplash.com/photo-1597074866923-dc0589150358",
+"Shimla":"https://images.unsplash.com/photo-1593693411515-c20261bcad6e",
+"Dharamshala":"https://images.unsplash.com/photo-1526772662000-3f88f10405ff",
+"Goa":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
 "Jaipur":"https://images.unsplash.com/photo-1599661046827-dacff0c0f09a",
-"Kashmir":"https://images.unsplash.com/photo-1609947017136-9daf32a5eb16",
+"Udaipur":"https://images.unsplash.com/photo-1564507592333-c60657eea523",
+"Jaisalmer":"https://images.unsplash.com/photo-1587474260584-136574528ed5",
+"Amritsar":"https://images.unsplash.com/photo-1609947017136-9daf32a5eb16",
+"Kashmir":"https://images.unsplash.com/photo-1595815771614-ade5019d5f3f",
+"Ladakh":"https://images.unsplash.com/photo-1593181629936-11c609b8db9b",
 "Kerala":"https://images.unsplash.com/photo-1593693411515-c20261bcad6e",
-"Ladakh":"https://images.unsplash.com/photo-1593181629936-11c609b8db9b"
+"Andaman":"https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+"Ooty":"https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+"Kodaikanal":"https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce",
+"Darjeeling":"https://images.unsplash.com/photo-1526481280691-781ae5ff6f8c",
+"Sikkim":"https://images.unsplash.com/photo-1518684079-3c830dcef090"
 };
 
-const ukPlaces=["Kedarnath","Badrinath","Rishikesh","Haridwar","Nainital","Mussoorie","Auli","Chopta"];
-const indiaPlaces=["Goa","Manali","Jaipur","Kashmir","Kerala","Ladakh"];
+/* LISTS */
+const ukPlaces=Object.keys(placesImages).slice(0,12);
+const indiaPlaces=Object.keys(placesImages).slice(12);
 
+/* CARD */
 function createCard(place){
-return `
-<div class="card">
+return `<div class="card">
 <img src="${placesImages[place]}" alt="${place}">
-<div class="card-content">
-<h3>${place}</h3>
-</div>
+<div class="card-content"><h3>${place}</h3></div>
 </div>`;
 }
 
-ukPlaces.forEach(p=>{
-document.getElementById("ukGrid").innerHTML+=createCard(p);
-});
-indiaPlaces.forEach(p=>{
-document.getElementById("indiaGrid").innerHTML+=createCard(p);
-});
+/* LOAD */
+ukPlaces.forEach(p=>ukGrid.innerHTML+=createCard(p));
+indiaPlaces.forEach(p=>indiaGrid.innerHTML+=createCard(p));
 
-/* Dropdown */
-const dropdown=document.getElementById("destination");
+/* DROPDOWN */
 [...ukPlaces,...indiaPlaces].forEach(p=>{
-dropdown.innerHTML+=`<option>${p}</option>`;
+destination.innerHTML+=`<option>${p}</option>`;
 });
 
-/* WhatsApp */
+/* WHATSAPP */
 function sendWhatsApp(e){
 e.preventDefault();
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let dest=document.getElementById("destination").value;
-let msg=`Hello, I am ${name}. My number is ${phone}. I want details for ${dest}.`;
-window.open(`https://wa.me/918679490106?text=${encodeURIComponent(msg)}`,'_blank');
+let msg=`Hello, I am ${name.value}. My number is ${phone.value}. I want details for ${destination.value}.`;
+window.open(`https://wa.me/918679490106?text=${encodeURIComponent(msg)}`);
 }
 
 </script>
-
 </body>
 </html>
