@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HIMyatraa Tours & Travels</title>
 
-<meta name="description" content="HIMyatraa Tours & Travels - 40+ Uttarakhand & All India Tour Packages. Direct WhatsApp Booking Available.">
-<meta name="keywords" content="Uttarakhand tour, Kedarnath, Badrinath, Chardham, India tour packages">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -20,8 +17,7 @@ scroll-behavior:smooth;
 
 /* NAV */
 nav{
-background:#00000090;
-backdrop-filter:blur(10px);
+background:#000000cc;
 padding:15px;
 position:fixed;
 width:100%;
@@ -42,7 +38,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80') center/cover;
+background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429') center/cover;
 }
 .hero h1{font-size:3rem;}
 .hero p{margin:20px 0;}
@@ -76,6 +72,7 @@ box-shadow:0 5px 20px rgba(0,0,0,0.4);
 .card:hover{transform:scale(1.05);}
 .card img{width:100%;height:200px;object-fit:cover;}
 .card-content{padding:15px;}
+.card-content p{font-size:14px;line-height:1.5;margin-top:8px;}
 
 /* BOOKING */
 form{
@@ -113,7 +110,7 @@ box-shadow:0 5px 15px rgba(0,0,0,0.4);
 .call{bottom:90px;background:#e84118;}
 
 footer{
-background:#00000090;
+background:#000000cc;
 padding:20px;
 text-align:center;
 }
@@ -131,64 +128,21 @@ text-align:center;
 <div class="hero">
 <div>
 <h1>HIMyatraa Tours & Travels</h1>
-<p>40+ Uttarakhand & All India Premium Tour Packages</p>
+<p>Premium Uttarakhand & India Tour Packages</p>
 <a href="#booking" class="btn">Book Now</a>
 </div>
 </div>
 
-<!-- UTTARAKHAND 40+ -->
+<!-- UTTARAKHAND -->
 <section id="uttarakhand">
-<h2>Uttarakhand Destinations (40+)</h2>
-<div class="grid">
-
-<!-- AUTO GENERATED 40 DESTINATIONS -->
-<script>
-const destinations = [
-"Kedarnath","Badrinath","Gangotri","Yamunotri","Haridwar","Rishikesh","Nainital","Mussoorie",
-"Auli","Chopta","Dehradun","Almora","Bageshwar","Binsar","Pithoragarh","Munsiyari",
-"Ranikhet","Lansdowne","Tehri","Dhanaulti","Harsil","Kausani","Pangot","Valley of Flowers",
-"Jim Corbett","Guptkashi","Tungnath","Hemkund Sahib","Joshimath","Devprayag",
-"Rudraprayag","Karnaprayag","Bhimtal","Sattal","Naukuchiatal","Chakrata",
-"Kanatal","Pauri","Gwaldam","Kotdwar"
-];
-
-document.write(destinations.map(d=>`
-<div class="card">
-<img src="https://source.unsplash.com/400x300/?${d},mountain">
-<div class="card-content">
-<h3>${d}</h3>
-<p>Premium & Budget packages available.</p>
-</div>
-</div>
-`).join(""));
-</script>
-
-</div>
+<h2>Uttarakhand Destinations</h2>
+<div class="grid" id="ukGrid"></div>
 </section>
 
 <!-- ALL INDIA -->
 <section id="india">
-<h2>All India Tour Packages</h2>
-<div class="grid">
-
-<script>
-const india = [
-"Goa","Manali","Shimla","Jaipur","Kashmir","Ladakh","Kerala","Darjeeling",
-"Andaman","Udaipur","Ooty","Kanyakumari"
-];
-
-document.write(india.map(d=>`
-<div class="card">
-<img src="https://source.unsplash.com/400x300/?${d},india">
-<div class="card-content">
-<h3>${d}</h3>
-<p>Luxury & Family Tour Packages.</p>
-</div>
-</div>
-`).join(""));
-</script>
-
-</div>
+<h2>All India Packages</h2>
+<div class="grid" id="indiaGrid"></div>
 </section>
 
 <!-- BOOKING -->
@@ -214,16 +168,55 @@ document.write(india.map(d=>`
 </div>
 
 <footer>
-© 2026 HIMyatraa Tours & Travels | Designed by Pradeep
+© 2026 HIMyatraa Tours & Travels
 </footer>
 
 <script>
+const ukPlaces=[
+"Kedarnath","Badrinath","Gangotri","Yamunotri","Haridwar","Rishikesh","Nainital","Mussoorie",
+"Auli","Chopta","Dehradun","Almora","Bageshwar","Binsar","Pithoragarh","Munsiyari",
+"Ranikhet","Lansdowne","Tehri","Dhanaulti","Harsil","Kausani","Pangot","Valley of Flowers",
+"Jim Corbett","Guptkashi","Tungnath","Hemkund Sahib","Joshimath","Devprayag",
+"Rudraprayag","Karnaprayag","Bhimtal","Sattal","Naukuchiatal","Chakrata",
+"Kanatal","Pauri","Gwaldam","Kotdwar"
+];
+
+const indiaPlaces=["Goa","Manali","Shimla","Jaipur","Kashmir","Ladakh","Kerala","Darjeeling","Andaman","Udaipur","Ooty","Kanyakumari"];
+
+function createCard(place,desc1,desc2){
+return `
+<div class="card">
+<img src="https://picsum.photos/400/300?random=${Math.floor(Math.random()*5000)}">
+<div class="card-content">
+<h3>${place}</h3>
+<p>${desc1}<br>${desc2}</p>
+</div>
+</div>
+`;
+}
+
+ukPlaces.forEach(p=>{
+document.getElementById("ukGrid").innerHTML+=createCard(
+p,
+`Explore the breathtaking beauty of ${p} in Uttarakhand.`,
+`Perfect for spiritual tours, family trips & adventure holidays.`
+);
+});
+
+indiaPlaces.forEach(p=>{
+document.getElementById("indiaGrid").innerHTML+=createCard(
+p,
+`Discover amazing experiences in ${p}.`,
+`Luxury, honeymoon & family packages available.`
+);
+});
+
 function sendWhatsApp(e){
 e.preventDefault();
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let dest=document.getElementById("destination").value;
-let msg=`Hello, I am ${name}. My number is ${phone}. I want package details for ${dest}.`;
+let msg=`Hello, I am ${name}. My number is ${phone}. I want details for ${dest}.`;
 window.open(`https://wa.me/918679490106?text=${encodeURIComponent(msg)}`,'_blank');
 }
 </script>
