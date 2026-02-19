@@ -3,71 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uttarakhand Tours</title>
+<title>HIMyatraa Tours & Travels</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-
-body{
-background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-color:white;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f5f7fa;}
 
 header{
-text-align:center;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
 padding:60px 20px;
-}
-
-header h1{
-font-size:42px;
-margin-bottom:10px;
-}
-
-header p{
-font-size:18px;
-opacity:.9;
-}
-
-.section{
-padding:40px 5%;
-}
-
-.section h2{
 text-align:center;
-margin-bottom:30px;
-font-size:28px;
 }
 
-.grid{
+header h1{font-size:40px;}
+header p{margin-top:10px;font-size:18px;}
+
+.search-box{
+text-align:center;
+margin:30px 0;
+}
+
+.search-box input{
+padding:12px;
+width:80%;
+max-width:400px;
+border-radius:30px;
+border:1px solid #ccc;
+outline:none;
+}
+
+.destinations{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+padding:20px;
 }
 
 .card{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(8px);
+background:white;
 border-radius:15px;
 overflow:hidden;
-transition:.3s;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-8px);
-}
+.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -75,152 +59,120 @@ height:200px;
 object-fit:cover;
 }
 
-.card-content{
-padding:15px;
-}
+.card-content{padding:15px;}
 
-.card-content h3{
-margin-bottom:8px;
-font-size:20px;
-}
+.card-content h3{margin-bottom:5px;}
 
 .card-content p{
 font-size:14px;
-opacity:.85;
+color:#555;
 }
 
-.contact{
+.buttons{
 text-align:center;
-padding:40px 20px;
+margin:40px 0;
 }
 
-.contact input,.contact select{
-padding:10px;
-margin:10px;
-width:250px;
-border-radius:8px;
-border:none;
-}
-
-.contact button{
-padding:10px 20px;
-background:#25D366;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-justify-content:center;
+.btn{
+display:inline-flex;
 align-items:center;
-font-size:26px;
-box-shadow:0 5px 15px rgba(0,0,0,.4);
+gap:8px;
+padding:12px 22px;
+margin:10px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:600;
+font-size:15px;
 }
+
+.call{background:#007bff;}
+.whatsapp{background:#25D366;}
 
 footer{
+background:#111;
+color:white;
 text-align:center;
 padding:20px;
-opacity:.7;
+margin-top:40px;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>Explore Beautiful Uttarakhand</h1>
-<p>Spiritual • Adventure • Nature • Family Tours</p>
+<h1>HIMyatraa Tours & Travels</h1>
+<p>Explore Uttarakhand with Comfort & Trust</p>
 </header>
 
-<section class="section">
-<h2>Uttarakhand Destinations</h2>
-<div class="grid" id="ukGrid"></div>
-</section>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search Destination..." onkeyup="searchFunction()">
+</div>
 
-<section class="section">
-<h2>All India Tours</h2>
-<div class="grid" id="indiaGrid"></div>
-</section>
-
-<section class="contact">
-<h2>Book Your Trip</h2>
-<input type="text" id="name" placeholder="Your Name"><br>
-<input type="text" id="phone" placeholder="Your Phone"><br>
-<select id="destination">
-<option>Kedarnath</option>
-<option>Badrinath</option>
-<option>Nainital</option>
-<option>Goa</option>
-<option>Manali</option>
-</select><br>
-<button onclick="sendWhatsApp()">Send on WhatsApp</button>
-</section>
-
-<a href="https://wa.me/918679490106" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<footer>
-© 2026 Uttarakhand Tours | All Rights Reserved
-</footer>
+<div class="destinations" id="destinationList"></div>
 
 <script>
-
-const defaultImage="https://picsum.photos/400/300?random=";
-
-const ukPlaces=[
-"Kedarnath","Badrinath","Gangotri","Yamunotri","Haridwar","Rishikesh","Nainital","Mussoorie",
-"Auli","Chopta","Dehradun","Almora","Bageshwar","Binsar","Pithoragarh","Munsiyari",
-"Ranikhet","Lansdowne","Tehri","Dhanaulti","Harsil","Kausani","Pangot","Valley of Flowers",
-"Jim Corbett","Guptkashi","Tungnath","Hemkund Sahib","Joshimath","Devprayag",
-"Rudraprayag","Karnaprayag","Bhimtal","Sattal","Naukuchiatal","Chakrata",
-"Kanatal","Pauri","Gwaldam","Kotdwar"
+const destinations = [
+{name:"Rishikesh",img:"https://source.unsplash.com/600x400/?rishikesh",desc:"Yoga Capital of the World. Famous for rafting and spiritual vibes."},
+{name:"Haridwar",img:"https://source.unsplash.com/600x400/?haridwar",desc:"Sacred city of Ganga Aarti. One of India's holiest places."},
+{name:"Kedarnath",img:"https://source.unsplash.com/600x400/?kedarnath-temple",desc:"Sacred Jyotirlinga temple surrounded by Himalayas."},
+{name:"Badrinath",img:"https://source.unsplash.com/600x400/?badrinath-temple",desc:"Important Char Dham site dedicated to Lord Vishnu."},
+{name:"Mussoorie",img:"https://source.unsplash.com/600x400/?mussoorie-hill-station",desc:"Queen of Hills with beautiful scenic views."},
+{name:"Nainital",img:"https://source.unsplash.com/600x400/?nainital-lake",desc:"Lake city famous for Naini Lake."},
+{name:"Auli",img:"https://source.unsplash.com/600x400/?auli-snow",desc:"Popular skiing destination with snow mountains."},
+{name:"Jim Corbett",img:"https://source.unsplash.com/600x400/?jim-corbett-national-park",desc:"India's oldest national park known for tigers."},
+{name:"Valley of Flowers",img:"https://source.unsplash.com/600x400/?valley-of-flowers-india",desc:"UNESCO site filled with colorful flowers."},
+{name:"Chopta",img:"https://source.unsplash.com/600x400/?chopta-uttarakhand",desc:"Mini Switzerland of India and trekking hub."},
+{name:"Tungnath",img:"https://source.unsplash.com/600x400/?tungnath-temple",desc:"Highest Shiva temple with stunning views."},
+{name:"Almora",img:"https://source.unsplash.com/600x400/?almora-hills",desc:"Peaceful hill town with cultural heritage."},
+{name:"Ranikhet",img:"https://source.unsplash.com/600x400/?ranikhet-hill",desc:"Beautiful cantonment town in hills."},
+{name:"Kausani",img:"https://source.unsplash.com/600x400/?kausani-himalaya",desc:"Panoramic Himalayan view point."},
+{name:"Munsiyari",img:"https://source.unsplash.com/600x400/?munsiyari-himalaya",desc:"Gateway to glaciers and adventure."},
+{name:"Tehri",img:"https://source.unsplash.com/600x400/?tehri-dam",desc:"Famous for Tehri Dam and water sports."}
 ];
 
-const indiaPlaces=["Goa","Manali","Shimla","Jaipur","Kashmir","Ladakh","Kerala","Darjeeling","Andaman","Udaipur","Ooty","Kanyakumari"];
+const container = document.getElementById("destinationList");
 
-function createCard(place,index){
-return `
+destinations.forEach(place=>{
+container.innerHTML+=`
 <div class="card">
-<img src="${defaultImage+index}">
+<img src="${place.img}" alt="${place.name}">
 <div class="card-content">
-<h3>${place}</h3>
-<p>Explore the beautiful landscapes of ${place}.<br>
-Perfect for family trips, honeymoon & adventure tours.</p>
+<h3>${place.name}</h3>
+<p>${place.desc}</p>
 </div>
 </div>
 `;
-}
-
-ukPlaces.forEach((p,i)=>{
-document.getElementById("ukGrid").innerHTML+=createCard(p,i);
 });
 
-indiaPlaces.forEach((p,i)=>{
-document.getElementById("indiaGrid").innerHTML+=createCard(p,i+100);
-});
-
-function sendWhatsApp(){
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let dest=document.getElementById("destination").value;
-let msg=`Hello, I am ${name}. My number is ${phone}. I want details for ${dest}.`;
-window.open(`https://wa.me/918679490106?text=${encodeURIComponent(msg)}`,'_blank');
+function searchFunction(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let cards=document.getElementsByClassName("card");
+for(let i=0;i<cards.length;i++){
+let title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+cards[i].style.display=title.includes(input)?"block":"none";
 }
-
+}
 </script>
+
+<div class="buttons">
+<a href="tel:8679490106" class="btn call">
+<i class="fa-solid fa-phone"></i> Call Now
+</a>
+
+<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp Uttarakhand
+</a>
+
+<a href="https://wa.me/918679490106" class="btn whatsapp" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp All India
+</a>
+</div>
+
+<footer>
+© 2026 HIMyatraa Tours & Travels | All Rights Reserved
+</footer>
 
 </body>
 </html>
