@@ -14,20 +14,18 @@ body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:#fff}
 nav{background:#000000cc;padding:15px;position:fixed;width:100%;z-index:999;text-align:center}
 nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold}
 
-/* HERO */
+/* HERO WITH MOUNTAIN BACKGROUND */
 .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
 .hero::before{
 content:"";
 position:absolute;width:100%;height:100%;
-background-size:cover;background-position:center;
-animation:slide 18s infinite;
+background-image:url('https://images.unsplash.com/photo-1509644851169-2acc08aa25b5');
+background-size:cover;
+background-position:center;
+opacity:0.6;
 z-index:-1}
-@keyframes slide{
-0%{background-image:url('https://source.unsplash.com/1600x900/?kedarnath,temple')}
-33%{background-image:url('https://source.unsplash.com/1600x900/?himalaya,mountains')}
-66%{background-image:url('https://source.unsplash.com/1600x900/?rishikesh,ganga')}
-100%{background-image:url('https://source.unsplash.com/1600x900/?uttarakhand,nature')}
-}
+
+/* BUTTON */
 .hero h1{font-size:3rem}
 .btn{padding:10px 25px;background:#ff7b00;border-radius:25px;color:#fff;text-decoration:none}
 
@@ -43,9 +41,6 @@ section{padding:100px 20px;text-align:center}
 /* PRICING */
 .pricing{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
 .price-card{background:#ffffff15;padding:20px;border-radius:15px;width:250px}
-.price-card h3{margin-bottom:10px}
-.price-card ul{list-style:none;margin:10px 0}
-.price-card li{margin:6px 0}
 
 /* BOOKING */
 form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:10px}
@@ -60,7 +55,6 @@ button{padding:10px;background:#ff7b00;border:none;border-radius:8px;color:#fff;
 /* MODAL */
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000cc;justify-content:center;align-items:center}
 .modal-content{background:#1e2a38;padding:20px;border-radius:10px;width:90%;max-width:600px}
-.close{float:right;cursor:pointer;font-size:20px}
 .gallery img{width:100%;height:250px;object-fit:cover;margin-top:10px}
 
 footer{text-align:center;padding:20px;background:#000000cc}
@@ -94,39 +88,6 @@ footer{text-align:center;padding:20px;background:#000000cc}
 <div class="grid" id="indiaGrid"></div>
 </section>
 
-<section id="pricing">
-<h2>Our Packages</h2>
-<div class="pricing">
-<div class="price-card">
-<h3>Basic</h3>
-<p>₹7,999</p>
-<ul>
-<li>Hotel Stay</li>
-<li>Transport</li>
-<li>Breakfast</li>
-</ul>
-</div>
-<div class="price-card">
-<h3>Deluxe</h3>
-<p>₹12,999</p>
-<ul>
-<li>3 Star Hotel</li>
-<li>All Meals</li>
-<li>Sightseeing</li>
-</ul>
-</div>
-<div class="price-card">
-<h3>Premium</h3>
-<p>₹19,999</p>
-<ul>
-<li>Luxury Hotel</li>
-<li>Private Cab</li>
-<li>All Inclusive</li>
-</ul>
-</div>
-</div>
-</section>
-
 <section id="booking">
 <h2>Book Your Trip</h2>
 <form onsubmit="sendWhatsApp(event)">
@@ -142,36 +103,37 @@ footer{text-align:center;padding:20px;background:#000000cc}
 <a href="https://wa.me/918679490106" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">×</span>
-<h3 id="modalTitle"></h3>
-<p>Enjoy scenic beauty, adventure & comfortable stay.</p>
-<div class="gallery" id="gallery"></div>
-</div>
-</div>
-
-<footer>
-© 2026 HIMyatraa Tours & Travels
-</footer>
+<footer>© 2026 HIMyatraa Tours & Travels</footer>
 
 <script>
+
+/* ===== REAL DESTINATION IMAGES ===== */
+const placesImages={
+"Kedarnath":"https://images.unsplash.com/photo-1605649487212-47bdab064df6",
+"Badrinath":"https://images.unsplash.com/photo-1626621341517-bbf3d9990d8f",
+"Rishikesh":"https://images.unsplash.com/photo-1595815771614-ade5019d5f3f",
+"Haridwar":"https://images.unsplash.com/photo-1609137144813-7d9921338f24",
+"Nainital":"https://images.unsplash.com/photo-1594103447925-2d4c38a6d5a1",
+"Mussoorie":"https://images.unsplash.com/photo-1587474260584-136574528ed5",
+"Auli":"https://images.unsplash.com/photo-1605640840605-14ac1855827b",
+"Chopta":"https://images.unsplash.com/photo-1630155346909-5f00e1f4c3df",
+"Goa":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+"Manali":"https://images.unsplash.com/photo-1597074866923-dc0589150358",
+"Jaipur":"https://images.unsplash.com/photo-1599661046827-dacff0c0f09a",
+"Kashmir":"https://images.unsplash.com/photo-1609947017136-9daf32a5eb16",
+"Kerala":"https://images.unsplash.com/photo-1593693411515-c20261bcad6e",
+"Ladakh":"https://images.unsplash.com/photo-1593181629936-11c609b8db9b"
+};
 
 const ukPlaces=["Kedarnath","Badrinath","Rishikesh","Haridwar","Nainital","Mussoorie","Auli","Chopta"];
 const indiaPlaces=["Goa","Manali","Jaipur","Kashmir","Kerala","Ladakh"];
 
-function imageUrl(place){
-return `https://source.unsplash.com/400x300/?${place},india`;
-}
-
 function createCard(place){
 return `
 <div class="card">
-<img src="${imageUrl(place)}">
+<img src="${placesImages[place]}" alt="${place}">
 <div class="card-content">
 <h3>${place}</h3>
-<a href="#" class="view-btn" onclick="openModal('${place}')">View Package</a>
 </div>
 </div>`;
 }
@@ -179,7 +141,6 @@ return `
 ukPlaces.forEach(p=>{
 document.getElementById("ukGrid").innerHTML+=createCard(p);
 });
-
 indiaPlaces.forEach(p=>{
 document.getElementById("indiaGrid").innerHTML+=createCard(p);
 });
@@ -189,17 +150,6 @@ const dropdown=document.getElementById("destination");
 [...ukPlaces,...indiaPlaces].forEach(p=>{
 dropdown.innerHTML+=`<option>${p}</option>`;
 });
-
-/* Modal */
-function openModal(place){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalTitle").innerText=place;
-document.getElementById("gallery").innerHTML=
-`<img src="https://source.unsplash.com/600x400/?${place},travel">`;
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
 
 /* WhatsApp */
 function sendWhatsApp(e){
